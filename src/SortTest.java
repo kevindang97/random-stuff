@@ -13,6 +13,7 @@ class SortTest {
     allSorts.add(new BubbleSort<Integer>());
     allSorts.add(new InsertionSort<Integer>());
     allSorts.add(new QuickSort<Integer>());
+    allSorts.add(new MergeSort<Integer>());
 
     List<List<Integer>> allLists = Arrays.asList(Arrays.asList(4, 3, 5, 1, 2),
         Arrays.asList(5, -1, 0, 3, 2), Arrays.asList(0, 0, 0, 0, 1));
