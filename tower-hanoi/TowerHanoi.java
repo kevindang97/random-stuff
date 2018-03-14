@@ -85,6 +85,12 @@ public class TowerHanoi {
     for (int i = size; i > 0; i--) {
       towers[0].push(i);
     }
+
+    // this gives the console adequate space for displaying the tower
+    // makes sure the ANSI clear codes don't delete the previous console lines
+    for (int i = 0; i < size + 2; i++) {
+      System.out.println();
+    }
   }
 
   public void move(int numberToMove, int from, int to) {
@@ -112,10 +118,10 @@ public class TowerHanoi {
     List<Integer> listTwo = towers[1].getListView();
     List<Integer> listThree = towers[2].getListView();
 
-    int max = Math.max(Math.max(listOne.size(), listTwo.size()), listThree.size());
-
-    System.out.println();
-    for (int i = max - 1; i >= 0; i--) {
+    // use ANSI clear codes to clear the lines used to render the tower
+    // this way the tower is rerendered in place rather than rendering 50 different times
+    System.out.print("\033[" + (size  + 2) + "F\033[J");
+    for (int i = size - 1; i >= 0; i--) {
       System.out.println("  " + (i >= listOne.size() ? " " : listOne.get(i))
         + "  " + (i >= listTwo.size() ? " " : listTwo.get(i))
         + "  " + (i >= listThree.size() ? " " : listThree.get(i)));
